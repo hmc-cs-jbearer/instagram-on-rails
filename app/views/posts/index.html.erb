@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <div class="white">
-    <%= image_tag(post.image.url(:medium)) %>
+    <%= link_to(image_tag(post.image.url(:medium)), post_url(post)) %>
     <br>
     <%= post.description %>
   </div>

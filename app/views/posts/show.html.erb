@@ -2,4 +2,9 @@
   <%= image_tag(@post.image.url(:medium)) %>
   <br>
   <%= @post.description %>
+  <br>
+  <%= link_to("Back", posts_url) %> |
+  <%= link_to("Delete", post_url(@post), method: :delete, data: {
+    confirm: "Are you sure you want to delete this post?"
+  }) %>
 </div>
