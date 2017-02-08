@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @post = Post.new()
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def index
     @posts = Post.all
   end
@@ -22,14 +26,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
+  def update
     @post = Post.find(params[:id])
-    if @post.update()
+    if @post.update(post_params)
       flash[:success] = "Post updated!"
-      redirect_to post_path(@post)
+      redirect_to @post
     else
       flash[:error] = @post.errors.full_messages
-      redirect_to edit_post_path(@post)
+      render 'edit'
     end
   end
 

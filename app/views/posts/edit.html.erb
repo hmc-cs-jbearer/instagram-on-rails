@@ -1,0 +1,11 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post, url: post_path(@post), method: :patch, html: { multipart: true } do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.submit %>
+<% end %>
